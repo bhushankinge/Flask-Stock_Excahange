@@ -1,0 +1,284 @@
+.container {
+    /* border: 1px black solid; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 160px;
+    font-family: Roboto;
+}
+
+.nav-bar {
+    /* padding: 20px; */
+    height: 100px;
+    width: 1000px;
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    background-color: rgba(248, 249, 250, 255);
+}
+
+.company,
+.stock-summary,
+.latest-news,
+.charts {
+    padding: 20px;
+    padding-right: 10px;
+    /* border: 1px purple solid; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    font-family: Roboto;
+}
+
+.logo img {
+    width: 100px;
+    height: 100px;
+    padding-bottom: 10px;
+
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.company,
+.charts {
+    width: 60px;
+    padding-right: 10px;
+}
+
+.stock-summary,
+.latest-news {
+    width: 120px;
+}
+
+.darker-color {
+    background-color: #d0cccc;
+}
+
+.charts:hover {
+    background-color: #e0dcdc;
+    transition: background-color 0.2s ease;
+}
+
+.company:hover {
+    background-color: #e0dcdc;
+    transition: background-color 0.2s ease;
+}
+
+.stock-summary:hover {
+    background-color: #e0dcdc;
+    transition: background-color 0.2s ease;
+}
+
+.latest-news:hover {
+    background-color: #e0dcdc;
+    transition: background-color 0.2s ease;
+}
+
+.display-details {
+    display: flex;
+    justify-content: top;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 25px;
+    height: 300px;
+    width: 800px;
+}
+
+.company-details {
+    /* border: 1px black solid; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    font-size: 18px;
+    line-height: 28px;
+}
+
+.column-1 {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    line-height: 32px;
+}
+
+.column-2 {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    line-height: 32px;
+}
+
+.company-name-data,
+.symbol-data,
+.exchange-data,
+.start-data,
+.category-data {
+    padding-left: 15px;
+    display: flex;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.ticker-data,
+.trading-data,
+.closing-data,
+.opening-data,
+.high-data,
+.low-data,
+.Change-data,
+.Percent-data {
+    padding-left: 15px;
+    display: flex;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    width: 50%;
+}
+
+
+
+/* Specific top border for the first item in each section */
+.company-name-data,
+.company-name-tag,
+.ticker-data,
+.ticker-tag {
+    border-top: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for tags in the company section */
+.company-name-tag,
+.symbol-tag,
+.exchange-tag,
+.start-tag,
+.category-tag {
+    display: flex;
+    justify-content: end;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+/* Styles for tags in the stock summary section */
+.ticker-tag,
+.trading-tag,
+.closing-tag,
+.opening-tag,
+.high-tag,
+.low-tag,
+.Change-tag,
+.Percent-tag {
+    display: flex;
+    justify-content: end;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    width: 65%;
+    margin-left: 35%;
+}
+
+.Change-data img {
+    width: 18px;
+    height: 18px;
+    padding-top: 5px;
+    padding-left: 3px;
+}
+
+.Percent-data img {
+    width: 18px;
+    height: 18px;
+    padding-top: 5px;
+    padding-left: 3px;
+}
+
+
+.recommnedation-display {
+    margin-top: 25px;
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.rec-contain {
+    display: flex;
+    height: 50px;
+    width: 300px;
+    /* border: 1px solid black; */
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.buy,
+.hold,
+.sell,
+.strong-sell,
+.strong-buy {
+    color: white;
+    height: 40px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.strong-buy {
+    background-color: #38fc90;
+}
+
+.strong-sell {
+    background-color: red;
+}
+
+.sell {
+    background-color: rgb(175, 109, 87);
+}
+
+.buy {
+    background-color: rgb(111, 205, 130);
+
+}
+
+.hold {
+    background-color: rgb(136, 156, 108);
+}
+
+
+.buy-text {
+    color: #38fc90;
+    padding-left: 10px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.sell-text {
+    color: red;
+    padding-right: 10px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.rec-text {
+    font-size: 20px;
+    margin-top: 5px;
+
+}
+
+
+#charts {
+    min-height: 600px;
+    min-width: 1000px;
+
+}
+
+#result-container {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid black; */
+}

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment_2</title>
+
+    <link rel="stylesheet" href="../static/css/search-section.css">
+
+
+    <link rel="stylesheet" href="../static/css/tp.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@700;800&display=swap" rel="stylesheet">
+
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+</head>
+
+<body>
+
+    <header>
+
+        <div class="search-section">
+            <div class="headline">Stock Search</div>
+        </div>
+
+        <div class="search-bar">
+            <form action="/" method="get" id="stockSearchForm">
+
+                <button type="submit" class="search-icon"><svg aria-hidden="true" focusable="false" data-prefix="fas"
+                        data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <path fill="currentColor"
+                            d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z">
+                        </path>
+                    </svg></button>
+                <div class="text-area"><input name="query" type="text" required placeholder="Enter Stock Ticker Symbol"
+                        class="search-input" />
+                </div>
+                <div class="cancel-button">
+                    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times"
+                        class="svg-inline--fa fa-times fa-w-11" role="img" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 352 512">
+                        <path fill="currentColor"
+                            d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z">
+                        </path>
+                    </svg>
+                </div>
+            </form>
+
+        </div>
+
+
+    </header>
+
+
+    <div id="result-container">
+        <div class="no-record">
+            <p class="no-record-text">Error: No record has been found, please enter a valid symbol</p>
+        </div>
+        <div class="container">
+            <div class="nav-bar" style="display: none;">
+                <div class="company" id="item1">Company</div>
+                <div class="stock-summary" id="item2">Stock Summary</div>
+                <div class="charts" id="item3">Charts</div>
+                <div class="latest-news" id="item4">Latest News</div>
+            </div>
+            <div class="display-details" id="company" style="display: none;">
+                <div class="logo"><img src="" alt="Company Logo"></div>
+                <div class="company-details">
+                    <div class="column-1">
+                        <div class="company-name-tag"><strong>Company Name</strong></div>
+                        <div class="symbol-tag"><strong>Stock Ticker Symbol</strong></div>
+                        <div class="exchange-tag"><strong>Stock Exchange Code</strong></div>
+                        <div class="start-tag"><strong>Company Start Date</strong></div>
+                        <div class="category-tag"><strong>Category</strong></div>
+                    </div>
+                    <div class="column-2">
+                        <div class="company-name-data"></div>
+                        <div class="symbol-data"></div>
+                        <div class="exchange-data"></div>
+                        <div class="start-data"></div>
+                        <div class="category-data"></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="display-details" id="stock-summary" style="display: none;">
+                <div class="company-details">
+                    <div class="column-1">
+                        <div class="ticker-tag"><strong>Stock Ticker Symbol</strong></div>
+                        <div class="trading-tag"><strong>Trading Day</strong></div>
+                        <div class="closing-tag"><strong>Previous Closing Price</strong></div>
+                        <div class="opening-tag"><strong>Opening Price</strong></div>
+                        <div class="high-tag"><strong>Hight Price</strong></div>
+                        <div class="low-tag"><strong>Low Price</strong></div>
+                        <div class="Change-tag"><strong>Change</strong></div>
+                        <div class="Percent-tag"><strong>Change Percent</strong></div>
+                    </div>
+                    <div class="column-2">
+                        <div class="ticker-data"></div>
+                        <div class="trading-data"></div>
+                        <div class="closing-data"></div>
+                        <div class="opening-data"></div>
+                        <div class="high-data"></div>
+                        <div class="low-data"></div>
+                        <div class="Change-data"></div>
+                        <div class="Percent-data"></div>
+                    </div>
+                </div>
+                <div class="recommnedation-display">
+                    <div class="rec-contain">
+                        <div class="sell-text">Strong <br> Sell</div>
+                        <div class="strong-sell"></div>
+                        <div class="sell"></div>
+                        <div class="hold"></div>
+                        <div class="buy"></div>
+                        <div class="strong-buy"></div>
+                        <div class="buy-text">Strong <br> Buy</div>
+                    </div>
+                    <div class="rec-text">Recommendation Trends</div>
+                </div>
+            </div>
+
+            <div id="charts"></div>
+
+            <div class="display-details" id="latest-news">
+                <div class="news-container template" style="display: none;">
+                    <div class="block-1">
+                        <div class="news-image">
+                            <img src="#" alt="news image" data-src="placeholder">
+                        </div>
+                    </div>
+                    <div class="block-2">
+                        <div class="news-title" data-title="placeholder"><strong>N/A</strong></div>
+                        <div class="news-date" data-date="placeholder">N/A</div>
+                        <div class="news-url">
+                            <a href="#" target="_blank" data-url="placeholder">See Original Post</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+        <script src="../static/js/index.js"></script>
+
+</body>
+
+</html>
